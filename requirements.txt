@@ -1,0 +1,9 @@
+flake8
+jupyter
+mock
+pluggy
+pytest
+pytest-cov
+tox
+tqdm
+-e .
