@@ -5,7 +5,7 @@ with open('README.md') as f:
 
 setup(
     name='mab-ranking',
-    version='0.0.0',
+    version='0.0.1',
     setup_cfg=True,
     python_requires='~=3.5',
     packages=find_packages(where='.'),
