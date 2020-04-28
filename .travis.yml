@@ -1,0 +1,29 @@
+sudo: false
+language: python
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+
+install:
+  - pip install tox-travis
+  - pip install codecov
+  - pip install -r requirements.txt
+
+
+script:
+  - make lint
+  - make test-all
+
+after_success:
+  - codecov --token=avm4PQNy8UecTz8q631p
+
+deploy:
+    provider: pypi
+    user: "__token__"
+    password:
+        secure: ntr9ZBGvqLwt5Lkb+SihR27x9/5LSnLkuhmvF2Fpo7qHwYYJRA2fIoZTSxdRcfIcH/CMn91RTwEqBX7ayCVDGE4zd2axz8e9Odr2E8DZrW+9RUsokEiWg9MVI62+e/GS0nrJsVLoux4uaL0M53AT5rA3PUY+6vDP4ib37F+V8WgL8ceLaSliCEy0W3N4ZIXka2oh6QUpDJy1x/lsyUuuR/bCZgKYH0lIeYfk382/g5hVUDhqqIxhaLYJ0w3ERwl8e8aGe93+2WTxyDBsJQWAQ85uYBmMSCLjn/r0F1UQYJbj03xGGRWbHJC0c/iePVEYGYNXzeL3/KNuHG0xIFRZBveYnE2nsrh3ABQZw3O90Rm9kWQa2JQFbnLZpcBmz9QtgR+Odnheebw/tCxPFuuTH6vrXoDqwXED9PKFwwV2kaUcsUoS+2qu3iHB+IoLIZVD14Yx4jNY0gzYrFITqhninuBTavTeO0s1s+3eIUhj3mUlZ4nlS0POj+FQFn1xshxZtemdHKAOvDpCOwyzQJ5rUkxGOKrr+jfu9k24VcI/W0JJ7Mjkun2bBZQgx2JvCC4JuJWBHAgnL84TCKJyJ9pcZb/OmrNsOwP8qWKitj/5rYEdZmuGer/djtNBqt0LOCaLjHSsmq3up54/wRPFOSZLC//7BYN92jHteYazrshD8kM=
+    on:
+        tags: true
+        branch: master
+        skip_existing: true
