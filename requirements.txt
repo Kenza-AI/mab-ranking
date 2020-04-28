@@ -1,0 +1,10 @@
+flake8
+jupyter
+matplotlib
+mock
+pluggy
+pytest
+pytest-cov
+tox
+tqdm
+-e .
