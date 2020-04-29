@@ -20,10 +20,9 @@ after_success:
 
 deploy:
     provider: pypi
-    user: "__token__"
+    user: pm3310
     password:
-        secure: ntr9ZBGvqLwt5Lkb+SihR27x9/5LSnLkuhmvF2Fpo7qHwYYJRA2fIoZTSxdRcfIcH/CMn91RTwEqBX7ayCVDGE4zd2axz8e9Odr2E8DZrW+9RUsokEiWg9MVI62+e/GS0nrJsVLoux4uaL0M53AT5rA3PUY+6vDP4ib37F+V8WgL8ceLaSliCEy0W3N4ZIXka2oh6QUpDJy1x/lsyUuuR/bCZgKYH0lIeYfk382/g5hVUDhqqIxhaLYJ0w3ERwl8e8aGe93+2WTxyDBsJQWAQ85uYBmMSCLjn/r0F1UQYJbj03xGGRWbHJC0c/iePVEYGYNXzeL3/KNuHG0xIFRZBveYnE2nsrh3ABQZw3O90Rm9kWQa2JQFbnLZpcBmz9QtgR+Odnheebw/tCxPFuuTH6vrXoDqwXED9PKFwwV2kaUcsUoS+2qu3iHB+IoLIZVD14Yx4jNY0gzYrFITqhninuBTavTeO0s1s+3eIUhj3mUlZ4nlS0POj+FQFn1xshxZtemdHKAOvDpCOwyzQJ5rUkxGOKrr+jfu9k24VcI/W0JJ7Mjkun2bBZQgx2JvCC4JuJWBHAgnL84TCKJyJ9pcZb/OmrNsOwP8qWKitj/5rYEdZmuGer/djtNBqt0LOCaLjHSsmq3up54/wRPFOSZLC//7BYN92jHteYazrshD8kM=
+        secure: aVhUsOLjRT4cKI/duTPuj4oBK+kaC2AqhBBc9P6Rf4pt6chg+w5+/GtNWxd8hm2+6YrAJZxONFY+xRS46W8NhMeJWK9nvy/GitptjqMeeBaoyZIHvyGczTkzhdui4ExQe3CI9P4JFbUmIXueIfqT1gEDfkAt0toUGpWA9/8BgBAA4DcXRMpqQT8M35sxf6cnBppdO8KYbA05rGQWjK+AEA2p0PtwtrChemECdVdrFlxl5qFb99ppLQ/6yuo1mLSfZzzVUIhgFP8ntEx59GoI4gxBHLabBAdrPUHxg9f9kCA2WUl+bgSs1uS0YF5HKWIZleFlg7YtuHm2dPKNVjHjT/sc9gjcDPa2eowPFWaa/5IvJMxcxTb5IzPocZugVcHil5oyq4wAGeoXQSj1gSJahBBmrGXvq8cFuCf0AOxvq3ZQyg2+EPqkD2ci9KuxNYEYMeLTCkvhUBaqa2gpI5XiyUbb7etcDikEaO1iNqVkyzOf7gz3oXLbOcCVztBlpPFN2hnWWAavhw6P1PbXxS0Nvfm64EWKfCNVIU22UgoMMlZzHqroGEGkHc9sV6oLUYCjimp8imVwAq/VMFu75oYa54kFWC1o1BHHbaqR4/yJlgmc+4XwfIRZe8jExlTydYTTM8VJ2ZWjUzMAcvaDD5FJx7faSo2nDX6kSF27gDBJahY=
     on:
         tags: true
         branch: master
-        skip_existing: true
