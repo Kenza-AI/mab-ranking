@@ -67,3 +67,31 @@ class BetaThompsonSampling(Bandit):
     def update(self, arm_id, reward, context=None):
         self.num_tries[arm_id] += 1
         self.rewards[arm_id] += reward
+
+
+class DirichletThompsonSampling(Bandit):
+    def __init__(self, num_arms):
+        super().__init__(num_arms)
+        self.rewards = np.asarray([[1.0]] * self.num_arms ** 2).reshape(self.num_arms, self.num_arms, 1)
+
+    def choose(self, context=None):
+        if context is None:
+            previous_action = 0
+        else:
+            previous_action = context['previous_action']
+
+        # sample from the distribution given the previous action
+        probs = [np.random.gamma(self.rewards[previous_action][i][0], 1) for i in range(self.num_arms)]
+        sorted_indices = np.argsort(probs)[::-1][-len(probs):].tolist()
+
+        return sorted_indices[0], sorted_indices
+
+    def update(self, arm_id, reward, context=None):
+        if context is None:
+            previous_action = 0
+        else:
+            previous_action = context['previous_action']
+
+        # for the time being we assume that the transitions are symmetric
+        self.rewards[previous_action][arm_id] += reward
+        self.rewards[arm_id][previous_action] += reward
