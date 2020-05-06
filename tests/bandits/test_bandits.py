@@ -77,7 +77,7 @@ class DirichletThompsonSamplingTest(TestCase):
 
             reward = 1.0 if best_arm_id == 0 else 0.0
             bandit.update(best_arm_id, reward=reward, context=context)
-            context = {'previous_action': chosen_arms[-1]}
+            context = {'previous_action': 0}
 
         chosen_arms_with_frequency = Counter(chosen_arms)
         assert chosen_arms_with_frequency[0] > chosen_arms_with_frequency[1]
