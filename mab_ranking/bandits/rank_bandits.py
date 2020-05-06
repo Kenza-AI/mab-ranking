@@ -58,7 +58,7 @@ class IndependentBandits(RankBandit):
         selected_arms = []
 
         for i in range(self.num_ranks):
-            selected_arm, ranked_arms = self.rank_bandits[i].choose()
+            selected_arm, ranked_arms = self.rank_bandits[i].choose(context)
             if selected_arm in selected_arms:
                 selected_arm = self.find_next_possible_arm(selected_arms, ranked_arms)
 
