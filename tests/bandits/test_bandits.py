@@ -42,6 +42,14 @@ class BetaThompsonSamplingTest(TestCase):
 
 
 class DirichletThompsonSamplingTest(TestCase):
+    def test_calculate_cond_prob(self):
+        num_arms = 3
+        bandit = DirichletThompsonSampling(num_arms=num_arms)
+
+        probs = bandit._calculate_cond_prob(0)
+        num_precision_error = 1e-10
+        assert sum(probs) > 1.0 - num_precision_error
+
     def test_choose(self):
         num_arms = 3
         bandit = DirichletThompsonSampling(num_arms=num_arms)
@@ -60,7 +68,7 @@ class DirichletThompsonSamplingTest(TestCase):
         bandit.update(1, reward=1.0, context={'previous_action': 2})
 
         assert (bandit.rewards == [
-            [[1.], [1.], [1.], [1.]],
+            [[1.], [1.], [2.], [1.]],
             [[1.], [1.], [2.], [1.]],
             [[1.], [2.], [1.], [1.]],
             [[1.], [1.], [1.], [1.]]]).all()
